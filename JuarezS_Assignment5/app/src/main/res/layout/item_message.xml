@@ -3,18 +3,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:padding="@dimen/spacing_large"
+    android:background="?android:attr/selectableItemBackground"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:layout_width="@dimen/spacing_xxlarge"
-        android:layout_height="match_parent"
-        android:src="@drawable/shape_circle"
+    <Button
+        android:id="@+id/initialBtn"
+        android:layout_width="@dimen/spacing_xmlarge"
+        android:layout_height="@dimen/spacing_xmlarge"
+        android:background="@drawable/shape_circle"
+        android:backgroundTint="@color/blue_grey_700"
+        android:padding="@dimen/spacing_medium"
+        android:maxLength="1"
+        android:textAllCaps="true"
+        android:textColor="@color/grey_100"
+        android:textSize="@dimen/initial_text"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/spacing_large"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -27,6 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="fname Lname"
+                android:textStyle="bold"
+                android:textColor="@color/grey_100_"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
@@ -36,19 +48,25 @@
                 android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="dd Month YYY" />
+                android:text="dd Month YYY"
+                android:textColor="@color/colorPrimaryLight"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/emailTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="myemail@email.com" />
+            android:text="myemail@email.com"
+            android:textColor="@color/grey_100_"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/messageTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="lkadjflkajdlkfjakdsfljalksdjflk" />
 
     </LinearLayout>

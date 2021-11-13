@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 
 import com.ualr.recyclerviewassignment.Utils.DataGenerator;
-import com.ualr.recyclerviewassignment.adapater.AdapterListBasic;
+import com.ualr.recyclerviewassignment.Utils.Tools;
+import com.ualr.recyclerviewassignment.adapter.AdapterListBasic;
 import com.ualr.recyclerviewassignment.databinding.ActivityListMultiSelectionBinding;
 import com.ualr.recyclerviewassignment.model.Inbox;
 
@@ -34,6 +36,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mBinding.getRoot());
         //setContentView(R.layout.activity_list_multi_selection);
         initRecyclerView();
+
+
+        mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, Inbox obj, int position) {
+                mAdapter.removeItem(position);
+            }
+        });
+
+
     }
 
     private void initRecyclerView() {
@@ -50,11 +62,24 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new AdapterListBasic(this, items);
         mBinding.recyclerView.setAdapter(mAdapter);
 
+
+
+
         mBinding.fab.setOnClickListener(new View.OnClickListener() {
+
            @Override
            public void onClick(View v) {
                // TODO 10. Invoke the method created to a new item to the top of the list so it's
                //  triggered when the user taps the Floating Action Button
+
+               //"this" is not working as the context, unsure what to put for the context
+               //List<Inbox> inbox =DataGenerator.getRandomInboxItem(this);
+               //Inbox object;
+               //mAdapter.addItem(0, DataGenerator.getInboxData());
+               mBinding.recyclerView.scrollToPosition(0);
+
+
+
 
            }
        });
